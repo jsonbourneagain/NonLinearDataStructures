@@ -95,29 +95,44 @@ namespace NonLinearDataStructures
             PreOrderTraversal(root.RightChild);
         }
 
-        public void InOrderTraversal(){
+        public void InOrderTraversal()
+        {
             InOrderTraversal(root);
         }
-        private void InOrderTraversal(Node root){
+        private void InOrderTraversal(Node root)
+        {
             if (root == null)
             {
                 return;
             }
             InOrderTraversal(root.LeftChild);
             System.Console.WriteLine(root.Value);
-            InOrderTraversal(root.RightChild); 
+            InOrderTraversal(root.RightChild);
         }
-        public void PostOrderTraversal(){
+        public void PostOrderTraversal()
+        {
             PostOrderTraversal(root);
         }
-        private void PostOrderTraversal(Node root){
+        private void PostOrderTraversal(Node root)
+        {
             if (root == null)
             {
                 return;
             }
             PostOrderTraversal(root.LeftChild);
             PostOrderTraversal(root.RightChild);
-            System.Console.WriteLine(root.Value); 
+            System.Console.WriteLine(root.Value);
+        }
+        public int Height() => Height(root);
+        private int Height(Node root)
+        {
+            if (root == null)
+                return -1;
+            
+            if (root.LeftChild == null && root.RightChild == null)
+                return 0;
+           
+            return 1 + Math.Max(Height(root.LeftChild), Height(root.RightChild));
         }
     }
 }
