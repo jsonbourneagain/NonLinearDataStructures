@@ -128,11 +128,50 @@ namespace NonLinearDataStructures
         {
             if (root == null)
                 return -1;
-            
-            if (root.LeftChild == null && root.RightChild == null)
+
+            if (IsLeaf(root))
                 return 0;
-           
+
             return 1 + Math.Max(Height(root.LeftChild), Height(root.RightChild));
+        }
+
+        public int Min() => Min(root);
+
+        // O(n)
+        private int Min(Node root)
+        {
+            if (IsLeaf(root))
+                return root.Value;
+
+            var leftMin = Min(root.LeftChild);
+            var rightMin = Min(root.RightChild);
+
+            return Math.Min(Math.Min(leftMin, rightMin), root.Value);
+        }
+        private bool IsLeaf(Node node)
+        {
+            return node.LeftChild == null && node.RightChild == null;
+        }
+
+        // O(log n)
+        private int MinForBST(Node root)
+        {
+            // In a BST, leftmost leaf would be the smallest. Similarly rightmost leaf would be the largest.
+
+            if (root == null)
+                throw new ArgumentNullException(nameof(root));
+
+            var current = root;
+            var last = current;
+
+            while (current != null)
+            {
+                last = current;
+                // if (current.LeftChild == null)
+                //     return current.Value;
+                current = current.LeftChild;
+            }
+            return last.Value;
         }
     }
 }

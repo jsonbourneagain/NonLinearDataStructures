@@ -17,7 +17,8 @@ namespace NonLinearDataStructures
             tree.Insert(10);
 
             //tree.PreOrderTraversal();
-            System.Console.WriteLine(tree.Height()); 
+            // System.Console.WriteLine(tree.Height());
+            System.Console.WriteLine(tree.Min());  
 
             Console.WriteLine();
         }
