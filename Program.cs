@@ -27,8 +27,9 @@ namespace NonLinearDataStructures
             tree1.Insert(6);
             tree1.Insert(9);
             tree1.Insert(8);
-            tree1.Insert(1);
-            //tree.PreOrderTraversal();
+            tree1.Insert(10);
+            // tree1.PreOrderTraversal();
+            // tree.PreOrderTraversal();
             Console.WriteLine(tree.IsEqual(tree1));
         }
     }

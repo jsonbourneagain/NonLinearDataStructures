@@ -174,38 +174,20 @@ namespace NonLinearDataStructures
             return last.Value;
         }
 
-        public bool IsEqual(BTree tree)
+        public bool IsEqual(BTree other)
         {
-            if (tree == null)
-                throw new ArgumentNullException(nameof(tree));
-
-            if (root.Value != tree.root.Value)
-                return false;
-
-            var current1 = root.LeftChild;
-            var current2 = tree.root.LeftChild;
-
-            while (current1 != null && current2 != null)
-            {
-                if (current1.Value != current2.Value)
-                    return false;
-
-                current1 = current1.LeftChild;
-                current2 = current2.LeftChild;
-            }
-            var current3 = root.RightChild;
-            var current4 = tree.root.RightChild;
-
-            while (current3 != null && current4 != null)
-            {
-                if (current3.Value != current4.Value)
-                    return false;
-
-                current3 = current3.RightChild;
-                current4 = current4.RightChild;
-            }
-            return true;
+            return IsEqual(root, other.root);
         }
+        private bool IsEqual(Node first, Node second)
+        {
+            if (first == null && second == null)
+                return true;
 
+            if (first != null && second != null)
+                return first.Value == second.Value &&
+                        IsEqual(first.LeftChild, second.LeftChild) &&
+                        IsEqual(first.RightChild, second.RightChild);
+            return false;
+        }
     }
 }
