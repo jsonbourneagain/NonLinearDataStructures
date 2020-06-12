@@ -176,6 +176,8 @@ namespace NonLinearDataStructures
 
         public bool IsEqual(BTree other)
         {
+            if (other == null)
+                return false;
             return IsEqual(root, other.root);
         }
         private bool IsEqual(Node first, Node second)
@@ -189,5 +191,29 @@ namespace NonLinearDataStructures
                         IsEqual(first.RightChild, second.RightChild);
             return false;
         }
+
+        public bool IsBinarySearchTree()
+        {
+            return IsBinarySearchTree(root, Int32.MinValue, Int32.MaxValue);
+        }
+
+        private bool IsBinarySearchTree(Node root, int min, int max)
+        {
+            if(root == null)
+                return true;
+            
+            if(root.Value < min || root.Value > max)
+                return false;
+
+            return IsBinarySearchTree(root.LeftChild, Int32.MinValue, root.Value-1) &&
+                    IsBinarySearchTree(root.RightChild, root.Value+1, Int32.MaxValue);
+        }
+
+        public void Swap(){
+            var temp = root.LeftChild;
+            root.LeftChild = root.RightChild;
+            root.RightChild = temp;
+        }
+
     }
 }

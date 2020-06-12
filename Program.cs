@@ -22,7 +22,7 @@ namespace NonLinearDataStructures
             BTree tree1 = new BTree(); 
 
             tree1.Insert(7);
-            tree1.Insert(4);
+            tree1.Insert(19);
             tree1.Insert(1);
             tree1.Insert(6);
             tree1.Insert(9);
@@ -30,7 +30,9 @@ namespace NonLinearDataStructures
             tree1.Insert(10);
             // tree1.PreOrderTraversal();
             // tree.PreOrderTraversal();
-            Console.WriteLine(tree.IsEqual(tree1));
+            // Console.WriteLine(tree.IsEqual(tree1));
+        //    tree.Swap(); 
+            Console.WriteLine(tree.IsBinarySearchTree());
         }
     }
 }
