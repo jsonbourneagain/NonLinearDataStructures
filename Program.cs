@@ -32,7 +32,8 @@ namespace NonLinearDataStructures
             // tree.PreOrderTraversal();
             // Console.WriteLine(tree.IsEqual(tree1));
         //    tree.Swap(); 
-            Console.WriteLine(tree.IsBinarySearchTree());
+            // Console.WriteLine(tree.PrintKthNode(3));
+            tree1.PrintKthNode(2);
         }
     }
 }

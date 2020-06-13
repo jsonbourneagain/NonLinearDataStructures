@@ -199,20 +199,41 @@ namespace NonLinearDataStructures
 
         private bool IsBinarySearchTree(Node root, int min, int max)
         {
-            if(root == null)
+            if (root == null)
                 return true;
-            
-            if(root.Value < min || root.Value > max)
+
+            if (root.Value < min || root.Value > max)
                 return false;
 
-            return IsBinarySearchTree(root.LeftChild, Int32.MinValue, root.Value-1) &&
-                    IsBinarySearchTree(root.RightChild, root.Value+1, Int32.MaxValue);
+            return IsBinarySearchTree(root.LeftChild, Int32.MinValue, root.Value - 1) &&
+                    IsBinarySearchTree(root.RightChild, root.Value + 1, Int32.MaxValue);
         }
 
-        public void Swap(){
+        public void Swap()
+        {
             var temp = root.LeftChild;
             root.LeftChild = root.RightChild;
             root.RightChild = temp;
+        }
+
+        public void PrintNodeAtDistanceK(int k)
+        {
+            PrintNodeAtDistanceK(root, k);
+        }
+
+        private void PrintNodeAtDistanceK(Node root, int k)
+        {
+            if (root == null)
+                return;
+            if (k == 0)
+            {
+                System.Console.WriteLine(root.Value);
+                return;
+            }
+
+            PrintNodeAtDistanceK(root.LeftChild, k - 1);
+            PrintNodeAtDistanceK(root.RightChild, k - 1);
+
         }
 
     }
