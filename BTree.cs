@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace NonLinearDataStructures
 {
@@ -236,5 +237,38 @@ namespace NonLinearDataStructures
 
         }
 
+        public List<int> GetNodesAtDistanceK(int k)
+        {
+            var nodes = new List<int>();
+            GetNodesAtDistanceK(root, k, ref nodes);
+            return nodes;
+        }
+        private void GetNodesAtDistanceK(Node root, int k, ref List<int> nodes)
+        {
+            if (root == null)
+                return;
+            if (k == 0)
+            {
+                nodes.Add(root.Value);
+            }
+            GetNodesAtDistanceK(root.LeftChild, k - 1, ref nodes);
+            GetNodesAtDistanceK(root.RightChild, k - 1, ref nodes);
+        }
+
+        public void TraverseLevelOrder()
+        {
+            var height = Height();
+            for (int i = 0; i <= height; i++)
+            {
+                var nodes = GetNodesAtDistanceK(i);
+
+                foreach (var item in nodes)
+                {
+                    System.Console.Write(item);
+                    System.Console.Write(" ");
+                }
+                System.Console.WriteLine();
+            }
+        }
     }
 }
