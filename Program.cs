@@ -34,10 +34,11 @@ namespace NonLinearDataStructures
         //    tree.Swap(); 
             // Console.WriteLine(tree.PrintKthNode(3));
             // tree1.GetNodesAtDistanceK(2);
-            tree1.TraverseLevelOrder();
+            // tree1.TraverseLevelOrder();
             // foreach( var item in tree1.GetNodesAtDistanceK(9)){
             //     System.Console.WriteLine(item);
             // }
+            System.Console.WriteLine(tree1.Size());
         }
     }
 }

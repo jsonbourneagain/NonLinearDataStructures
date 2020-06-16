@@ -270,5 +270,17 @@ namespace NonLinearDataStructures
                 System.Console.WriteLine();
             }
         }
+
+        public int Size()
+        {
+            return Size(root);
+        }
+        private int Size(Node root)
+        {
+            if (root == null)
+                return 0;
+
+            return 1 + Size(root.LeftChild) + Size(root.RightChild);
+        }
     }
 }
