@@ -28,6 +28,7 @@ namespace NonLinearDataStructures
             tree1.Insert(9);
             tree1.Insert(8);
             tree1.Insert(10);
+            tree1.Insert(0);
             // tree1.PreOrderTraversal();
             // tree.PreOrderTraversal();
             // Console.WriteLine(tree.IsEqual(tree1));
@@ -38,7 +39,8 @@ namespace NonLinearDataStructures
             // foreach( var item in tree1.GetNodesAtDistanceK(9)){
             //     System.Console.WriteLine(item);
             // }
-            System.Console.WriteLine(tree1.Size());
+            // System.Console.WriteLine(tree1.Size());
+            System.Console.WriteLine(tree1.CountLeaves());
         }
     }
 }

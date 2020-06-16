@@ -282,5 +282,24 @@ namespace NonLinearDataStructures
 
             return 1 + Size(root.LeftChild) + Size(root.RightChild);
         }
+
+        public int CountLeaves()
+        {
+            int noOfLeaves = 0;
+            CountLeaves(root, ref noOfLeaves);
+            return noOfLeaves;
+        }
+        private void CountLeaves(Node root, ref int noOfLeaves)
+        {
+            if (root == null)
+                return;
+
+            if (root.LeftChild == null && root.RightChild == null)
+                noOfLeaves++;
+
+            CountLeaves(root.LeftChild, ref noOfLeaves);
+            CountLeaves(root.RightChild, ref noOfLeaves);
+
+        }
     }
 }
