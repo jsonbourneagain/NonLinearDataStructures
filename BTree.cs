@@ -301,5 +301,18 @@ namespace NonLinearDataStructures
             CountLeaves(root.RightChild, ref noOfLeaves);
 
         }
+
+        public int Max(){
+            return Max(root);
+        }
+        private int Max(Node root){
+            if(root == null)
+                return 0;
+            
+            int leftMax = Max(root.LeftChild);
+            int righMax = Max(root.RightChild);
+
+            return Math.Max(root.Value, Math.Max(leftMax, righMax));
+        }
     }
 }
