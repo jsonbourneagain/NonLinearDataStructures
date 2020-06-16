@@ -302,17 +302,37 @@ namespace NonLinearDataStructures
 
         }
 
-        public int Max(){
+        public int Max()
+        {
             return Max(root);
         }
-        private int Max(Node root){
-            if(root == null)
+        private int Max(Node root)
+        {
+            if (root == null)
                 return 0;
-            
+
             int leftMax = Max(root.LeftChild);
             int righMax = Max(root.RightChild);
 
             return Math.Max(root.Value, Math.Max(leftMax, righMax));
+        }
+
+        public bool Contains(int value)
+        {
+            return Contains(root, value);
+        }
+        private bool Contains(Node root, int value)
+        {
+            if (root == null)
+                return false;
+
+            if (value == root.Value)
+                return true;
+            if (value < root.Value)
+                return Contains(root.LeftChild, value);
+            else
+                return Contains(root.RightChild, value);
+
         }
     }
 }

@@ -41,7 +41,8 @@ namespace NonLinearDataStructures
             // }
             // System.Console.WriteLine(tree1.Size());
             // System.Console.WriteLine(tree1.CountLeaves());
-            System.Console.WriteLine(tree1.Max());
+            // System.Console.WriteLine(tree1.Max());
+            System.Console.WriteLine(tree1.Contains(8));
         }
     }
 }
