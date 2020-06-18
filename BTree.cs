@@ -334,5 +334,26 @@ namespace NonLinearDataStructures
                 return Contains(root.RightChild, value);
 
         }
+
+        public bool AreSiblings(int a, int b)
+        {
+            return AreSiblings(root, a, b);
+        }
+        private bool AreSiblings(Node root, int a, int b)
+        {
+            if (root == null)
+                return false;
+            if (root.LeftChild != null && root.RightChild != null)
+            {
+                int left = root.LeftChild.Value;
+                int right = root.RightChild.Value;
+                if (left == a && right == b)
+                    return true;
+                if (left == b && right == a)
+                    return true;
+            }
+            // Check left subtree and right subtee 
+            return AreSiblings(root.LeftChild, a, b) || AreSiblings(root.RightChild, a, b);
+        }
     }
 }
