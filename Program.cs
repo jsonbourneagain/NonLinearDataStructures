@@ -43,7 +43,10 @@ namespace NonLinearDataStructures
             // System.Console.WriteLine(tree1.CountLeaves());
             // System.Console.WriteLine(tree1.Max());
             // System.Console.WriteLine(tree1.Contains(8));
-            System.Console.WriteLine(tree1.AreSiblings(1,19));
+            // System.Console.WriteLine(tree1.AreSiblings(1,19));
+            foreach(var item in tree1.GetAncestors(6)){
+                System.Console.WriteLine(item);
+            }
         }
     }
 }

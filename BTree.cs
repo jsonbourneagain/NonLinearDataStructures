@@ -355,5 +355,28 @@ namespace NonLinearDataStructures
             // Check left subtree and right subtee 
             return AreSiblings(root.LeftChild, a, b) || AreSiblings(root.RightChild, a, b);
         }
+
+        public List<int> GetAncestors(int key)
+        {
+            List<int> ancestors = new List<int>();
+            GetAncestors(root, key, ref ancestors);
+            return ancestors;
+        }
+        private bool GetAncestors(Node root, int key, ref List<int> ancestors)
+        {
+            if (root == null)
+                return false;
+
+            if (root.Value == key)
+            {
+                return true;
+            }
+            if (GetAncestors(root.LeftChild, key, ref ancestors) || GetAncestors(root.RightChild, key, ref ancestors))
+            {
+                ancestors.Add(root.Value);
+                return true;
+            }
+            return false;
+        }
     }
 }
